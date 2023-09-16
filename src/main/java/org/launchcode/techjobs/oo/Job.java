@@ -23,8 +23,7 @@ public class Job {
     }
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
-        this();//The second constructor should also call the first in order to initialize
-        //  the 'id' field.
+        this();//The second constructor should also call the first in order to initialize the 'id' field.
         this.name = name;
         this.employer = employer;
         this.location = location;
@@ -36,26 +35,16 @@ public class Job {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Job job)) return false;
-        return id == job.id && Objects.equals(name, job.name) && Objects.equals(employer, job.employer) && Objects.equals(location, job.location) && Objects.equals(positionType, job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return id == job.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+        return Objects.hash(id);
     }
 
-/*     @Override
-    public boolean equals(Object o) {  // Two objects are equal if they have the same id.
-        if (this == o) return true;
-        if (!(o instanceof Employer)) return false;
-        Employer employer = (Employer) o;
-        return getId() == employer.getId();
-    }
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    } */
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
 
