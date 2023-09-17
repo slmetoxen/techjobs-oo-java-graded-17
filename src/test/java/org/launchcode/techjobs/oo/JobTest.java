@@ -6,11 +6,10 @@ import static org.testng.Assert.*;
 
 public class JobTest {
     //TODO: Create your unit tests here
-    Job job1 = new Job();//int id, String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency
-    Job job2 = new Job();
-
     @Test
     public void testSettingJobId(){
+        Job job1 = new Job();//int id, String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency
+        Job job2 = new Job();
         assertNotEquals(job1.getId(),job2.getId());
     }
     @Test
@@ -33,6 +32,13 @@ public class JobTest {
         assertEquals(testData.getCoreCompetency().getValue(), "Persistence");
 
     }
+    @Test
+    public void testJobsForEquality(){
+        Job testId1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job testId2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertNotEquals(testId1.getId(), testId2.getId());
+    }
+
 }
 
 
