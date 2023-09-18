@@ -1,5 +1,7 @@
 package org.launchcode.techjobs.oo;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Objects;
 
 public class Job {
@@ -91,4 +93,17 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+    @Override
+    public String toString() {
+        return System.lineSeparator() + "Job{" +
+                "id=" + id + System.lineSeparator() +
+                ", name='" + name + '\'' + System.lineSeparator() +
+                ", employer=" + employer + System.lineSeparator() +
+                ", location=" + location + System.lineSeparator() +
+                ", positionType=" + positionType + System.lineSeparator() +
+                ", coreCompetency=" + coreCompetency + System.lineSeparator() +
+                '}'+ System.lineSeparator();
+    }
+
 }

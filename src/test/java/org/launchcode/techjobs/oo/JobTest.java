@@ -16,6 +16,7 @@ public class JobTest {
     public void testJobConstructorSetsAllFields(){
 
         Job testData = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
         assertTrue(testData.getName() instanceof String);
         assertEquals(testData.getName(), "Product tester");
 
@@ -39,6 +40,11 @@ public class JobTest {
         assertNotEquals(testId1.getId(), testId2.getId());
     }
 
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        Job test = new Job();
+        assertEquals(test.toString(), System.lineSeparator() + new Job() + System.lineSeparator());
+    }
 }
 
 
