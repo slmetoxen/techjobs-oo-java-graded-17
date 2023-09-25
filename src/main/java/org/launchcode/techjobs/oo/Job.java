@@ -94,16 +94,37 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+
+
     @Override
     public String toString() {
-        return System.lineSeparator() + "Job{" +
-                "id=" + id + System.lineSeparator() +
-                ", name='" + name + '\'' + System.lineSeparator() +
-                ", employer=" + employer + System.lineSeparator() +
-                ", location=" + location + System.lineSeparator() +
-                ", positionType=" + positionType + System.lineSeparator() +
-                ", coreCompetency=" + coreCompetency + System.lineSeparator() +
-                '}'+ System.lineSeparator();
-    }
+        String newline = System.lineSeparator();
+        //String fieldIsEmpty = "Data not available";
+        if (name == ""){
+            return setName("Data not available".equals(name));
+        }
+        else if (getEmployer().getValue() == null){
+            return String.valueOf(new Employer("Data not available" ));
+        }
+        else if (getLocation().getValue() == null){
+            return fieldIsEmpty;
+        }
+        else if (getPositionType().getValue() == null){
+            return fieldIsEmpty;
+        }
+        else if (getCoreCompetency().getValue() == null){
+            return fieldIsEmpty;
+        } else {
+            return newline +
+                    "ID: " + id + newline +
+                    "Name: " + name + newline +
+                    "Employer: " + employer + newline +
+                    "Location: " + location + newline +
+                    "Position Type: " + positionType + newline +
+                    "Core Competency: " + coreCompetency + newline;
 
+        }
+    }
 }
+
+

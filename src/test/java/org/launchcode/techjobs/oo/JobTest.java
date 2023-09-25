@@ -2,7 +2,7 @@ package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
 
-import static org.testng.Assert.*;
+import static org.junit.Assert.*;
 
 public class JobTest {
     //TODO: Create your unit tests here
@@ -42,9 +42,29 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
-        Job test = new Job();
-        assertEquals(test.toString(), System.lineSeparator() + new Job() + System.lineSeparator());
+        Job test = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String toStringValue = test.toString();
+
+        assertTrue(toStringValue.startsWith(System.lineSeparator()));
+        assertTrue(toStringValue.endsWith(System.lineSeparator()));
+        //assertEquals(System.lineSeparator()+ toStringValue + System.lineSeparator(), System.lineSeparator() + test + System.lineSeparator());
     }
-}
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job testJob = new Job ("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String toStringData = testJob.toString();
+        assertEquals(testJob.toString(), toStringData.toString());
+    }
+
+    @Test
+    public  void testToStringHandlesEmptyField(){
+        Job emptyEmployerValue = new Job ("Product tester", new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertEquals("Data not available", emptyEmployerValue.toString());
+    }
+
+}//   String jobString = getJobString(job);
+    //assertEquals(jobString, job.toString());
 
 
