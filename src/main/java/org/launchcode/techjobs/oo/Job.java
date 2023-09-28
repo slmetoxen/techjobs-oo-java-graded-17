@@ -4,6 +4,7 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.util.Objects;
 
+
 public class Job {
 
     private int id;
@@ -94,26 +95,23 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-
+   // private static final String fieldIsEmpty = "Data not available";
 
     @Override
     public String toString() {
+        String result;
         String newline = System.lineSeparator();
-        //String fieldIsEmpty = "Data not available";
-        if (name == ""){
-            return setName("Data not available".equals(name));
-        }
-        else if (getEmployer().getValue() == null){
-            return String.valueOf(new Employer("Data not available" ));
-        }
-        else if (getLocation().getValue() == null){
-            return fieldIsEmpty;
-        }
-        else if (getPositionType().getValue() == null){
-            return fieldIsEmpty;
-        }
-        else if (getCoreCompetency().getValue() == null){
-            return fieldIsEmpty;
+        String fieldIsEmpty = "Data not available";
+        if (name.isEmpty()) {
+            return "Data not available";
+        } else if (employer == null) {
+            return "Data not available";
+        } else if (getLocation().getValue() == null) {
+            return "Data not available";
+        } else if (getPositionType().getValue() == null) {
+            return "Data not available";
+        } else if (getCoreCompetency().getValue() == null) {
+            return "Data not available";
         } else {
             return newline +
                     "ID: " + id + newline +
@@ -124,6 +122,7 @@ public class Job {
                     "Core Competency: " + coreCompetency + newline;
 
         }
+
     }
 }
 
