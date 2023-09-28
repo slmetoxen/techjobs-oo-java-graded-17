@@ -59,9 +59,9 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField(){
-        Job emptyEmployerValue = new Job ("Product tester", new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        //assertEquals("Data not available", emptyEmployerValue.toString());
-        assertEquals(emptyEmployerValue,emptyEmployerValue.toString());
+        Job emptyEmployerValue = new Job ("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        //assertEquals(emptyEmployerValue, emptyEmployerValue.toString());
+        assertEquals("Data not available", emptyEmployerValue.toString()); //but this should fail-will have to write new test
     }
 
 

@@ -2,6 +2,7 @@ package org.launchcode.techjobs.oo;
 
 import org.w3c.dom.ls.LSOutput;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 
@@ -95,31 +96,35 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-   // private static final String fieldIsEmpty = "Data not available";
 
     @Override
     public String toString() {
-        String result;
+
         String newline = System.lineSeparator();
-        String fieldIsEmpty = "Data not available";
-        if (name.isEmpty()) {
+
+        if (getName().isEmpty()) {
             return "Data not available";
-        } else if (employer == null) {
+        }
+        if (getEmployer().getValue().isEmpty()) {
             return "Data not available";
-        } else if (getLocation().getValue() == null) {
+        }
+        if (getLocation().getValue().isEmpty()) {
             return "Data not available";
-        } else if (getPositionType().getValue() == null) {
+        }
+        if (getPositionType().getValue().isEmpty()) {
             return "Data not available";
-        } else if (getCoreCompetency().getValue() == null) {
+        }
+        if (getCoreCompetency().getValue().isEmpty()) {
             return "Data not available";
-        } else {
+        }
+        else {
             return newline +
-                    "ID: " + id + newline +
-                    "Name: " + name + newline +
-                    "Employer: " + employer + newline +
-                    "Location: " + location + newline +
-                    "Position Type: " + positionType + newline +
-                    "Core Competency: " + coreCompetency + newline;
+                    "ID: " + getId() + newline +
+                    "Name: " + getName() + newline +
+                    "Employer: " + getEmployer().getValue() + newline +
+                    "Location: " + getLocation().getValue() + newline +
+                    "Position Type: " + getPositionType().getValue() + newline +
+                    "Core Competency: " + getCoreCompetency().getValue() + newline;
 
         }
 
