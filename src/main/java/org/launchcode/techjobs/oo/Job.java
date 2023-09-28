@@ -96,38 +96,34 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-
+    //final ArrayList<Job>jobField=new ArrayList<>();
     @Override
     public String toString() {
 
         String newline = System.lineSeparator();
 
         if (getName().isEmpty()) {
-            return "Data not available";
+            name = "Data not available";
         }
         if (getEmployer().getValue().isEmpty()) {
-            return "Data not available";
+            employer.setValue("Data not available");
         }
         if (getLocation().getValue().isEmpty()) {
-            return "Data not available";
+            location.setValue("Data not available");
         }
         if (getPositionType().getValue().isEmpty()) {
-            return "Data not available";
+           positionType.setValue("Data not available");
         }
         if (getCoreCompetency().getValue().isEmpty()) {
-            return "Data not available";
+            coreCompetency.setValue("Data not available");
         }
-        else {
-            return newline +
-                    "ID: " + getId() + newline +
-                    "Name: " + getName() + newline +
-                    "Employer: " + getEmployer().getValue() + newline +
-                    "Location: " + getLocation().getValue() + newline +
-                    "Position Type: " + getPositionType().getValue() + newline +
-                    "Core Competency: " + getCoreCompetency().getValue() + newline;
-
-        }
-
+        return newline +
+                "ID: " + getId() + newline +
+                "Name: " + getName() + newline +
+                "Employer: " + getEmployer().getValue() + newline +
+                "Location: " + getLocation().getValue() + newline +
+                "Position Type: " + getPositionType().getValue() + newline +
+                "Core Competency: " + getCoreCompetency().getValue() + newline;
     }
 }
 

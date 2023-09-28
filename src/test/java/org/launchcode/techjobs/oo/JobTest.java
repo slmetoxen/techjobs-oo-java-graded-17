@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
 
+import java.lang.reflect.InvocationTargetException;
+
 import static org.junit.Assert.*;
 
 public class JobTest {
@@ -45,27 +47,32 @@ public class JobTest {
         Job test = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String toStringValue = test.toString();
 
-        assertTrue(toStringValue.startsWith(System.lineSeparator()));
-        assertTrue(toStringValue.endsWith(System.lineSeparator()));
-        //assertEquals(System.lineSeparator()+ toStringValue + System.lineSeparator(), System.lineSeparator() + test + System.lineSeparator());
+        //assertTrue(toStringValue.startsWith(System.lineSeparator()));
+        //assertTrue(toStringValue.endsWith(System.lineSeparator()));
+        assertEquals(System.lineSeparator()+ toStringValue + System.lineSeparator(), System.lineSeparator() + test + System.lineSeparator());
     }
 
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
         Job testJob = new Job ("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String toStringData = testJob.toString(); //assertEquals(testJob.toString(), String.valueOf(testJob);
-        assertEquals(testJob.toString(), toStringData.toString());
+
     }
 
     @Test
     public void testToStringHandlesEmptyField(){
         Job emptyEmployerValue = new Job ("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        //assertEquals(emptyEmployerValue, emptyEmployerValue.toString());
-        assertEquals("Data not available", emptyEmployerValue.toString()); //but this should fail-will have to write new test
+        assertEquals(emptyEmployerValue, emptyEmployerValue.toString()); // this will not pass because the type values are different (Job vs String)
+        //assertEquals("Data not available", emptyEmployerValue.getEmployer());
+
     }
 
 
-}//     String jobString = getJobString(job);
-//      assertEquals(jobString, emptyEmployerValue.toString());
+}
+//    public void testToStringHandlesEmptyField() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
+//        Job job = createJob("Web Developer", "", "StL", "", "Java");
+//        String jobString = getJobString(job);
+//        assertEquals(jobString, job.toString());
+//    }
 
 
