@@ -55,22 +55,22 @@ public class JobTest {
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
         Job testJob = new Job ("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        String toStringData = testJob.toString(); //assertEquals(testJob.toString(), String.valueOf(testJob);
-
+        String toStringValue = testJob.toString(); //assertEquals(testJob.toString(), String.valueOf(testJob);
+        assertEquals(System.lineSeparator()+ toStringValue + System.lineSeparator(), System.lineSeparator() + testJob + System.lineSeparator());
     }
 
     @Test
     public void testToStringHandlesEmptyField(){
         Job emptyEmployerValue = new Job ("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals(emptyEmployerValue, emptyEmployerValue.toString()); // this will not pass because the type values are different (Job vs String)
-        //assertEquals("Data not available", emptyEmployerValue.getEmployer());
+        String toStringValue = emptyEmployerValue.toString();
+        assertEquals(System.lineSeparator()+ toStringValue + System.lineSeparator(), System.lineSeparator() + emptyEmployerValue + System.lineSeparator());
 
     }
 
 
 }
 //    public void testToStringHandlesEmptyField() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
-//        Job job = createJob("Web Developer", "", "StL", "", "Java");
+//        Jobjob = createJob("Web Developer", "", "StL", "", "Java");
 //        String jobString = getJobString(job);
 //        assertEquals(jobString, job.toString());
 //    }
